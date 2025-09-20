@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Tools - CGPA & Unit Converter</title>
+<meta name="description" content="Fast CGPA to Percentage & Unit Converter. Works offline, mobile-friendly, shareable, and history saved.">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Student Tools</h1>
+    <button id="themeToggle">Toggle Dark Mode</button>
+  </header>
+
+  <!-- CGPA Converter -->
+  <section class="box">
+    <h2>CGPA → Percentage</h2>
+    <label for="cgpaInput">Enter CGPA:</label>
+    <input type="number" id="cgpaInput" placeholder="e.g., 8.5" step="0.01" min="0" max="10" aria-label="CGPA input">
+    
+    <label for="cgpaPreset">Select Scale / University:</label>
+    <select id="cgpaPreset" aria-label="CGPA preset">
+      <option value="10">10-Point Scale</option>
+      <option value="7">7-Point Scale</option>
+      <option value="4">4-Point Scale</option>
+      <option value="custom">Custom Formula</option>
+    </select>
+
+    <div id="customFormula" class="hidden">
+      <label for="formulaA">a:</label>
+      <input type="number" id="formulaA" step="0.01" value="9.5">
+      <label for="formulaB">b:</label>
+      <input type="number" id="formulaB" step="0.01" value="0">
+    </div>
+
+    <button onclick="convertCGPA()">Convert</button>
+    <div class="result" id="cgpaResult"></div>
+    <button onclick="copyCGPAResult()">Copy Result</button>
+  </section>
+
+  <!-- Unit Converter -->
+  <section class="box">
+    <h2>Unit Converter</h2>
+    <label for="unitInput">Enter Value:</label>
+    <input type="number" id="unitInput" placeholder="Value" aria-label="Unit value">
+    
+    <label for="unitType">Select Unit Conversion:</label>
+    <select id="unitType" aria-label="Unit type">
+      <option value="kmToMiles">Km → Miles</option>
+      <option value="milesToKm">Miles → Km</option>
+      <option value="cToF">°C → °F</option>
+      <option value="fToC">°F → °C</option>
+      <option value="kgToLbs">Kg → Lbs</option>
+      <option value="lbsToKg">Lbs → Kg</option>
+    </select>
+
+    <button onclick="convertUnit()">Convert</button>
+    <div class="result" id="unitResult"></div>
+    <button onclick="copyUnitResult()">Copy Result</button>
+  </section>
+
+  <!-- History -->
+  <section class="box">
+    <h2>Conversion History</h2>
+    <ul id="historyList"></ul>
+    <button onclick="clearHistory()">Clear History</button>
+  </section>
+
+  <!-- Monetization -->
+  <section class="box">
+    <h2>Support Me</h2>
+    <a href="https://www.buymeacoffee.com/" target="_blank">Buy me a coffee ☕</a>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
